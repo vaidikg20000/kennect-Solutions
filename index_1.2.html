@@ -1,0 +1,25 @@
+<!-- Assignment 1.2 solution -->
+<div id="demo">
+    <div>1</div>
+    <div>2</div>
+    <div>
+      <div id="hello">Hello world!</div>
+    </div>
+    <div>3</div>
+  </div>
+  <script>
+  const getElementById = (element, id) => {
+    const queue = [element];
+    while (queue.length) {
+      const curr = queue.shift();
+      if (curr.id === id) {
+        return curr;
+      }
+      if (curr.children.length) {
+        queue.push(...curr.children);
+      }
+    }
+  };
+  
+  console.log(getElementById(document.documentElement, 'hello').innerHTML);
+  </script>
